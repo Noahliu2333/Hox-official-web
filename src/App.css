@@ -1,0 +1,10 @@
+.container {
+  padding-top: 15rem;
+  padding-bottom: 12rem;
+  font-size: 1.25rem;
+}
+.pin {
+  position: relative;
+  left: 0;
+  bottom: 0;
+}

@@ -1,0 +1,260 @@
+.wave-group {
+  position: relative;
+  padding: 0.5rem 0.5rem;
+}
+
+.wave-group .input {
+  font-size: 18px;
+  font-family: "Garamond", serif;
+  padding: 20px 50px 10px 8px;
+  display: block;
+  width: 20rem;
+  border: none;
+  border-bottom: 1px solid #515151;
+  background: transparent;
+}
+
+.wave-group .inputLong {
+  font-size: 16px;
+  font-family: "Garamond", serif;
+  padding: 20px 50px 10px 8px;
+  display: block;
+  width: 800px;
+  border: none;
+  border-bottom: 1px solid #515151;
+  background: transparent;
+}
+
+.wave-group .input:focus {
+  outline: none;
+}
+
+.wave-group .inputLong:focus {
+  outline: none;
+}
+
+.wave-group .label {
+  color: #999;
+  font-size: 20px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 0px;
+  display: flex;
+}
+
+.wave-group .label-char {
+  transition: 0.2s ease all;
+  transition-delay: calc(var(--index) * 0.05s);
+}
+
+.wave-group .input:focus ~ label .label-char,
+.wave-group .input:valid ~ label .label-char {
+  transform: translateY(-20px);
+  font-size: 24px;
+  color: #000000;
+}
+
+.wave-group .inputLong:focus ~ label .label-char,
+.wave-group .inputLong:valid ~ label .label-char {
+  transform: translateY(-20px);
+  font-size: 24px;
+  color: #000000;
+}
+
+.wave-group .bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.wave-group .barLong {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.wave-group .bar:before,
+.wave-group .bar:after {
+  content: "";
+  height: 1px;
+  width: 0;
+
+  bottom: 1px;
+  position: absolute;
+  background: #490074;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.wave-group .barLong:before,
+.wave-group .barLong:after {
+  content: "";
+  height: 1px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #490074;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.wave-group .bar:before {
+  left: 50%;
+}
+
+.wave-group .bar:after {
+  right: 50%;
+}
+
+.wave-group .barLong:before {
+  left: 50%;
+}
+
+.wave-group .barLong:after {
+  right: 50%;
+}
+
+.wave-group .input:focus ~ .bar:before,
+.wave-group .input:focus ~ .bar:after {
+  width: 50%;
+}
+
+.wave-group .inputLong:focus ~ .barLong:before,
+.wave-group .inputLong:focus ~ .barLong:after {
+  width: 50%;
+}
+
+.spinner {
+  --size: 30px;
+  --first-block-clr: #9472ba;
+  --second-block-clr: #ffb900;
+  --clr: #111;
+  width: 100px;
+  height: 100px;
+  position: sticky;
+  align-content: center;
+  padding: 20px 50px;
+}
+
+.spinner::after,
+.spinner::before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  top: 50%;
+  animation: up 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+  left: 50%;
+  background: var(--first-block-clr);
+}
+
+.spinner::after {
+  background: var(--second-block-clr);
+  top: calc(50% - var(--size));
+  left: calc(50% - var(--size));
+  animation: down 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+}
+
+@keyframes down {
+  0%,
+  100% {
+    transform: none;
+  }
+
+  25% {
+    transform: translateX(100%);
+  }
+
+  50% {
+    transform: translateX(100%) translateY(100%);
+  }
+
+  75% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes up {
+  0%,
+  100% {
+    transform: none;
+  }
+
+  25% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(-100%) translateY(-100%);
+  }
+
+  75% {
+    transform: translateY(-100%);
+  }
+}
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto;
+}
+.row:not(:last-child) {
+  margin-bottom: 8rem;
+}
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row [class^="col-"] {
+  float: left;
+}
+.row [class^="col-"]:not(:last-child) {
+  margin-right: 6rem;
+}
+.row .col-1-of-2 {
+  width: calc((100% - 0rem) / 2);
+}
+.row .col-1-of-3 {
+  width: calc((100% - 2 * 6rem) / 3);
+}
+.row .col-2-of-3 {
+  width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem);
+}
+.row .col-1-of-4 {
+  width: calc((100% - 3 * 6rem) / 4);
+}
+.row .col-2-of-4 {
+  width: calc(2 * ((100% - 3 * 6rem) / 4) + 6rem);
+}
+.row .col-3-of-4 {
+  width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem);
+}
+
+.u-center-text {
+  text-align: center !important;
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem !important;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important;
+}
+
+.u-margin-top-big {
+  margin-top: 8rem !important;
+}
+
+.u-margin-top-huge {
+  margin-top: 10rem !important;
+}
